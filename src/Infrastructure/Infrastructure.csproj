@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Crosscutting\" />
+    <Folder Include="Gateways\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+</Project>
