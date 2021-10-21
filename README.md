@@ -11,6 +11,7 @@ Rest **Payment Gateway** API to simulate a flow where a merchant will be allowed
 Go to the project root folder and head to  **src/Presentation.Api**  subfolder and run:
 > dotnet run
 ​
+
 This will start the API application (with development environment settings) on  [https://localhost:5001](https://localhost:5001/)  by default.
 
 Or
@@ -38,7 +39,7 @@ This will open the Swagger UI and will let us do the requests we want to test.
 	- 2XX - Success
 	- 4XX or 5XX - Errors
 - Customer account balance contains 100 of the given currency
-​
+
 ​
 ## Hardcoded edge cases​
 |Card Number	| Error Expected |
@@ -46,7 +47,8 @@ This will open the Swagger UI and will let us do the requests we want to test.
 |4000000000000119|Authorization Failure|
 |4000000000000259|Capture Failure|
 |4000000000003238|Refund Failure|
-​
+
+
 ## Possible improvements to solution
 ### Technical
 - Add more unit tests - Add unit tests for untested class.
