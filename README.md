@@ -67,3 +67,4 @@ This will open the Swagger UI and will let us do the requests we want to test.
 - Apply currency conversion.
 - Apply fees to merchants payments.
 - Anti-Fraud system - review cards against a blacklist.
+- Security and Compliance - Payment Card Industry Data Security Standard
