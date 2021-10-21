@@ -59,6 +59,10 @@ namespace Application.Services
                     StatusCode = PaymentStatusCode.Rejected,
                     ErrorMessage = bankCaptureResult.ErrorMessage
                 };
+
+                await this.paymentRepository.SaveChangesAsync(result);
+
+                throw new AmountViolationException(bankCaptureResult.ErrorMessage);
             }
 
             result.CapturedAmount += captureData.Amount;

@@ -47,18 +47,7 @@ namespace Application.Services
 
             result.ValidateRefundAmount(captureData.Amount);
 
-            var bankRefundResult = bankGateway.Refund(captureData.Amount);
-
-            if (!bankRefundResult.IsSuccess)
-            {
-                // review status
-                result.Status = new PaymentStatus
-                {
-                    Updated = DateTime.UtcNow,
-                    StatusCode = result.Status.StatusCode,
-                    ErrorMessage = bankRefundResult.ErrorMessage
-                };
-            }
+            bankGateway.Refund(captureData.Amount);
 
             result.CapturedAmount -= captureData.Amount;
             result.Status = new PaymentStatus
