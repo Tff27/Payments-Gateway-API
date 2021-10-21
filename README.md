@@ -27,12 +27,12 @@ Access Swagger  [https://localhost:5001/swagger](https://localhost:5001/swagger)
 This will open the Swagger UI and will let us do the requests we want to test. 
 ​
 -   **[No Authentication Required]**
-	- **/api/login** - Is a mocked authentication endpoint that will generate a JWT token, that can be used to authenticate the next api calls.
+	- **/login** - Is a mocked authentication endpoint that will generate a JWT token, that can be used to authenticate the next api calls.
 -   **[Authentication Required]**
-	- **api/payments/authorize** - Requests an authorization for a payment.
-	- **api/payments/void** - Voids a given authorization for a payment.
-	- **api/payments/capture** - Capture the money from the customers bank.
-	- **api/payments/refund** - Refunds the money taken from the customers bank.
+	- **/authorize** - Requests an authorization for a payment.
+	- **/payments/void** - Voids a given authorization for a payment.
+	- **/payments/capture** - Capture the money from the customers bank.
+	- **/payments/refund** - Refunds the money taken from the customers bank.
 ​
 ## Assumptions
 - Success/Error response are delivered through standard http status codes
