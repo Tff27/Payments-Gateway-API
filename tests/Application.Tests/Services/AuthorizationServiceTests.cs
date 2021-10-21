@@ -1,19 +1,20 @@
-namespace Application.Services.Tests
-{
-    using Application.Dto;
-    using Application.ServicesInterfaces;
-    using Domain.Core;
-    using Domain.Exceptions;
-    using Domain.Model;
-    using FizzWare.NBuilder;
-    using Microsoft.Extensions.Logging;
-    using MongoDB.Bson;
-    using Moq;
-    using MoqMeUp;
-    using System;
-    using System.Threading.Tasks;
-    using Xunit;
+using Application.Services;
+using Application.Dto;
+using Application.ServicesInterfaces;
+using Domain.Core;
+using Domain.Exceptions;
+using Domain.Model;
+using FizzWare.NBuilder;
+using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
+using Moq;
+using MoqMeUp;
+using System;
+using System.Threading.Tasks;
+using Xunit;
 
+namespace Application.Tests.Services
+{
     public class AuthorizationServiceTests : MoqMeUp<AuthorizationService>
     {
         private readonly IAuthorizationService target;
@@ -22,8 +23,8 @@ namespace Application.Services.Tests
 
         public AuthorizationServiceTests()
         {
-            this.target = this.Build();
-            this.loggerMock = new Mock<ILogger<AuthorizationService>>();
+            target = Build();
+            loggerMock = new Mock<ILogger<AuthorizationService>>();
         }
 
         [Fact]
@@ -56,11 +57,11 @@ namespace Application.Services.Tests
                 })
                 .Build();
 
-            this.Get<IPaymentRepository>().Setup(x => x.AddAsync(It.IsAny<Payment>()))
+            Get<IPaymentRepository>().Setup(x => x.AddAsync(It.IsAny<Payment>()))
                 .ReturnsAsync(payment);
 
             // Act
-            var act = await this.target.AuthorizeAsync(authorizationData);
+            var act = await target.AuthorizeAsync(authorizationData);
 
             // Assert
             Assert.NotNull(act);
@@ -84,7 +85,7 @@ namespace Application.Services.Tests
             var errorMessage = $"Edge case - Authorization Failed for card: {edgeCaseCardNumber}";
 
             // Act
-            var act = await Record.ExceptionAsync(async () => await this.target.AuthorizeAsync(authorizationData));
+            var act = await Record.ExceptionAsync(async () => await target.AuthorizeAsync(authorizationData));
 
             // Assert
             Assert.NotNull(act);
@@ -139,7 +140,7 @@ namespace Application.Services.Tests
                 .Build();
 
             // Act
-            var act = await Record.ExceptionAsync(async () => await this.target.AuthorizeAsync(authorizationData));
+            var act = await Record.ExceptionAsync(async () => await target.AuthorizeAsync(authorizationData));
 
             // Assert
             Assert.NotNull(act);
