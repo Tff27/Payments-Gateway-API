@@ -8,6 +8,9 @@ Rest **Payment Gateway** API to simulate a flow where a merchant will be allowed
 - MongoDB
 ​
 ## Run the application​
+
+Update database connection string on appSettings with a valid connection string.
+
 Go to the project root folder and head to  **src/Presentation.Api**  subfolder and run:
 > dotnet run
 ​
@@ -27,7 +30,7 @@ Access Swagger  [https://localhost:5001/swagger](https://localhost:5001/swagger)
 This will open the Swagger UI and will let us do the requests we want to test. 
 ​
 -   **[No Authentication Required]**
-	- **/login** - Is a mocked authentication endpoint that will generate a JWT token, that can be used to authenticate the next api calls.
+	- **/login** - Is a mocked authentication endpoint that will generate a JWT token, that can be used to authenticate the next api calls (Please use "checkout" as username).
 -   **[Authentication Required]**
 	- **/authorize** - Requests an authorization for a payment.
 	- **/payments/void** - Voids a given authorization for a payment.
