@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="LuhnNet" Version="2.0.0" />
-    <PackageReference Include="MongoDB.Bson" Version="2.13.2" />
+    <PackageReference Include="MongoDB.Bson" Version="3.5.0" />
   </ItemGroup>
 
 </Project>
