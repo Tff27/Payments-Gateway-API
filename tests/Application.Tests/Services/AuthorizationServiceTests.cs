@@ -31,13 +31,15 @@ namespace Application.Tests.Services
         public async Task AuthorizeAsync_ValidCard_ReturnsServiceResponse_Async()
         {
             // Arrange
+            var validYear = DateTime.UtcNow.Year + 1;
+
             var authorizationData = Builder<AuthorizationDto>.CreateNew()
                 .With(x => x.Number = "4000000000002115")
                 .And(x => x.Amount = 20)
                 .And(x => x.Currency = "€")
                 .And(x => x.Cvv = 100)
                 .And(x => x.ExpirationMonth = 11)
-                .And(x => x.ExpirationYear = 2021)
+                .And(x => x.ExpirationYear = validYear)
                 .Build();
 
             var payment = Builder<Payment>.CreateNew()
@@ -48,7 +50,7 @@ namespace Application.Tests.Services
                 .And(x => x.Currency = "€")
                 .And(x => x.Cvv = 100)
                 .And(x => x.ExpirationMonth = 11)
-                .And(x => x.ExpirationYear = 2021)
+                .And(x => x.ExpirationYear = validYear)
                 .And(x => x.Created = DateTime.UtcNow)
                 .And(x => x.Status = new PaymentStatus()
                 {
